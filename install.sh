@@ -23,7 +23,7 @@ rsync -avz --out-format="   %n" $BBB_HOSTNAME:/usr/xenomai/lib ./sysroot/usr/xen
 
 # 'missing'
 rsync -avz --out-format="   %n" $BBB_HOSTNAME:/usr/lib/libNE10.* ./sysroot/usr/lib
-rsync -avz --out-format="   %n" $XC_SSH:/usr/lib/libmathneon.* ./sysroot/usr/lib
+rsync -avz --out-format="   %n" $BBB_HOSTNAME:/usr/lib/libmathneon.* ./sysroot/usr/lib
 
 # bela
 mkdir -p ./sysroot/root/Bela/include
