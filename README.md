@@ -9,7 +9,7 @@ Bela/scripts/update_board.sh
 scripts/build_lib.sh
 
 # build the image
-docker build --squash --tag ebai101/xc-bela .
+docker build --tag ebai101/xc-bela .
 ```
 
 ### Todo
