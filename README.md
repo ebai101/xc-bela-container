@@ -1,6 +1,6 @@
-# chorale-image
+# xc-bela
 
-Docker image for chorale dev environment.
+Docker image for Bela development and cross-compilation.
 
 ```shell
 # if the Bela needs to be updated before copying files to the image run these
@@ -9,5 +9,10 @@ Bela/scripts/update_board.sh
 scripts/build_lib.sh
 
 # build the image
-docker build --tag odea_bela .
+docker build --squash --tag ebai101/xc-bela .
 ```
+
+### Todo
+
+- eliminate one of (or sync) the Bela directories `/sysroot/root/Bela` and `${workspaceRoot}/external/Bela`
+- trim size down (currently 1.48 GB)

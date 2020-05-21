@@ -1,9 +1,10 @@
 #!/bin/bash -e
 source build_settings
 
-# test llvm
-/usr/local/bin/clang-10 --version
-exit 0
+grep 'docker\|lxc' /proc/1/cgroup > /dev/null 2>&1 || {
+    echo This script should only be called in a container. Run build.sh on the host
+    exit 1
+}
 
 # pre-register ssh key
 mkdir ~/.ssh
