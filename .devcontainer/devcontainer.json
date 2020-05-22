@@ -1,0 +1,32 @@
+// For format details, see https://aka.ms/vscode-remote/devcontainer.json or this file's README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.112.0/containers/docker-existing-dockerfile
+{
+	"name": "xc-bela",
+	"context": ".",
+	"image": "ebai101/xc-bela:latest",
+	"workspaceFolder": "/workspace",
+	"settings": {
+		"terminal.integrated.shell.linux": "/bin/bash",
+		"remote.containers.workspaceMountConsistency": "cached"
+	},
+	"runArgs": [
+		"--network", "host",
+		"--cap-add=SYS_PTRACE",
+		"--security-opt", "seccomp=unconfined",
+	],
+	"workspaceMount": "source=xc-bela-src,target=/workspace/chorale,type=volume",
+	"mounts": [
+		"source=xc-bela-extensions,target=/root/.vscode-server/extensions,type=volume",
+		"source=xc-bela-bashhistory,target=/commandhistory,type=volume"
+	],
+	"extensions": [
+		"llvm-vs-code-extensions.vscode-clangd",
+		"webfreak.debug",
+		"eamodio.gitlens",
+		"plorefice.devicetree",
+		"ebai101.pasm-syntax",
+		"twxs.cmake",
+		"ms-vscode.cmake-tools",
+		"bbenoist.togglehs"
+	]
+}

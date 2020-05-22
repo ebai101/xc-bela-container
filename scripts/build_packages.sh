@@ -15,6 +15,8 @@ apt-get update
 
 apt-get install --no-install-recommends -y \
     clang-10 \
+	clangd-10 \
+	ninja-build \
 	coreutils \
 	linux-libc-dev-armhf-cross \
 	cpp-6-arm-linux-gnueabihf \
