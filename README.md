@@ -73,6 +73,8 @@ Finally, update `.devcontainer/devcontainer.json` to use your custom build:
 
 I am developing/testing on macOS, so if any Windows/Linux users have issues and/or fixes for issues on their platform, I'd love to hear them. I'm also open to any methods to get the image size down (it's currently around 1.5 GB!) and anyone willing to improve the CMake setup, as I am still a CMake noob.
 
+The Bela submodule in the repo is currently my personal fork; it has been modified (based on [this PR](https://github.com/BelaPlatform/Bela/pull/626)) to build a single static library containing all Bela object files. Once [this commit](https://github.com/BelaPlatform/Bela/commit/74eb2a59738e16ae3057e3978b115bbbcf030881) allowing custom Makefile hooks is merged into the master, Makefile, we can probably move back to the base repo.
+
 ## Credits
 
 All credit for the Bela code goes to Bela and Augmented Instruments Ltd. As per the license terms, this project is also licensed under the LGPLv3.
