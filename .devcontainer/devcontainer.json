@@ -10,6 +10,7 @@
 		"remote.containers.workspaceMountConsistency": "cached"
 	},
 	"runArgs": [
+		"--env-file", ".devcontainer/devcontainer.env",
 		"--network", "host",
 		"--cap-add=SYS_PTRACE",
 		"--security-opt", "seccomp=unconfined",
