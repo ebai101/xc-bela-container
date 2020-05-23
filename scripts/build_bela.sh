@@ -1,5 +1,6 @@
 #!/bin/bash -e
 source build_settings
+BBB_ADDRESS=root@$BBB_HOSTNAME
 
 grep 'docker\|lxc' /proc/1/cgroup > /dev/null 2>&1 || {
     echo This script should only be called in a container. Run build.sh on the host
