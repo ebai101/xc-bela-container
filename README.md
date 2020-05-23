@@ -1,6 +1,8 @@
 # xc-bela
 
-Docker image/VSCode dev container for Bela development and cross-compilation. Uses Clang 10, CMake and Ninja for a fast and modular builds.
+Docker image/VSCode environment for [Bela](https://bela.io/) development and cross-compilation. Uses Clang 10, CMake and Ninja for a fast and modular builds.
+
+By containerizing the cross-compilation toolchain, Bela code can be written and compiled on any host OS that can run Docker, and is compiled much faster and with more flexibility than in the Bela IDE. The VSCode environment is also set up for running GDB over SSH, allowing you to debug your Bela programs in the editor.
 
 ## Usage
 
@@ -8,13 +10,9 @@ This repo is set up to run the image as a VSCode development container. It shoul
 
 ### Quickstart
 
-Install [Docker](https://docs.docker.com/get-docker/) and the [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) extensions, if you haven't already.
+Install [Docker](https://docs.docker.com/get-docker/) and the [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) extensions, if you haven't already. Clone the repo using `git clone --recurse-submodules` to ensure that the Bela submodule is cloned as well.
 
 Open this folder in VSCode and run the command `Remote-Containers: Reopen in Container` or click the popup when prompted. This will download the image, install a few extensions and attach the editor to the container.
-
-You'll be greeted with an empty workspace. Open an integrated terminal and clone [the main repo](https://github.com/odea-audio/chorale), then open the `code-workspace` file in the repo.
-
-From here, you can configure and build with CMake and Ninja 
 
 ### Extensions
 
@@ -37,7 +35,8 @@ Extensions are stored on a Docker volume, so they will persist through container
 
 `.devcontainer/devcontainer.env` contains important environment variables that you should set before building the container:
 
-**BBB_HOSTNAME** - set this to the IP address of your Bela (could be 192.168.6.2, 192.168.7.2, etc)
+- **BBB_HOSTNAME** - set this to the IP address of your Bela (could be 192.168.6.2, 192.168.7.2, etc)
+- there will be others I imagine
 
 You can set any other variables you wish in this file; they will all be sourced when the container starts up.
 
@@ -69,3 +68,16 @@ Finally, update `.devcontainer/devcontainer.json` to use your custom build:
 "workspaceFolder": "/workspace",
 ...
 ```
+
+## Contributing
+
+I am developing/testing on macOS, so if any Windows/Linux users have issues and/or fixes for issues on their platform, I'd love to hear them. I'm also open to any methods to get the image size down (it's currently around 1.5 GB!) and anyone willing to improve the CMake setup, as I am still a CMake noob.
+
+## Credits
+
+All credit for the Bela code goes to Bela and Augmented Instruments Ltd. As per the license terms, this project is also licensed under the LGPLv3.
+
+The cross-compiler setup is based on/inspired by TheTechnoBear's [xcBela](https://github.com/TheTechnobear/xcBela). Initially I was working on this as a fork of his repo - many thanks to him for laying the groundwork.
+
+Also of note is Andrew Capon's [OSXBelaCrossCompiler](https://github.com/AndrewCapon/OSXBelaCrossCompiler) and the related [Bela Wiki](https://github.com/BelaPlatform/Bela/wiki/Compiling-Bela-projects-in-Eclipse) page for Eclipse.
+
