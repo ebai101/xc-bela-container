@@ -1,4 +1,4 @@
-# xc-bela
+# xc-bela-container
 
 Docker image/VSCode environment for [Bela](https://bela.io/) development and cross-compilation. Uses Clang 10, CMake and Ninja for a fast and modular builds.
 
@@ -13,7 +13,7 @@ This repo is set up to run the image as a VSCode development container. It shoul
 Install [Docker](https://docs.docker.com/get-docker/) and the [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) extensions, if you haven't already. Clone the repo to your machine:
 
 ```shell
-git clone --recurse-submodules https://github.com/ebai101/xc-bela.git
+git clone --recurse-submodules https://github.com/ebai101/xc-bela-container.git
 ```
 
 Open the repo folder in VSCode and run the command `Remote-Containers: Reopen in Container`  or click the popup when prompted. This will download the image, install a few extensions and attach the editor to the container.
@@ -21,7 +21,7 @@ Open the repo folder in VSCode and run the command `Remote-Containers: Reopen in
 The workspace is stored as a Docker volume to improve disk performance, so it will be empty by default. There's a template repo to get you running quickly, so open an integrated terminal in VSCode (the command is `Terminal: Create New Integrated Terminal`) and clone the template repo:
 
 ```shell
-git clone --recurse-submodules https://github.com/ebai101/xc-bela-bootstrap
+git clone --recurse-submodules https://github.com/ebai101/xc-bela-bootstrap.git
 ```
 
 The workspace will contain a workspace file called `xc-bela-boostrap.code-workspace`, click on that and choose "Open Workspace." The window will reload and CMake should automatically reconfigure the project. (If it shows an error that says "error: unknown target CPU 'armv7-a'", that's just a bug in the script - run the configuration again and it should work.)
