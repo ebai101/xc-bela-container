@@ -31,7 +31,7 @@ You can use the CMake extension to configure and build now, or do it from the te
 ```shell
 mkdir build # if it doesn't exist already
 cd build
-cmake ../
+cmake -DCMAKE_TOOLCHAIN_FILE=../Toolchain.cmake ../
 cmake --build .
 ```
 
